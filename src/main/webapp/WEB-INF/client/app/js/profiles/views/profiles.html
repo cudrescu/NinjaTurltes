@@ -10,16 +10,16 @@
 			<div class="box">
 				<div class="box-header">
 					<div class="col-xs-3">
-						<input class="form-control" ng-model="profilesFilters.email" placeholder="filter by email">
+						<input class="form-control" ng-model="profilesFilters.email" placeholder="filter by email" ng-enter="getProfiles()">
 					</div>
 					<div class="col-xs-3">
-						<input class="form-control" ng-model="profilesFilters.lastName" placeholder="filter by name">
+						<input class="form-control" ng-model="profilesFilters.lastName" placeholder="filter by name" ng-enter="getProfiles()">
 					</div>
 					<div class="col-xs-3">
-						<input class="form-control" ng-model="profilesFilters.position" placeholder="filter by position">
+						<input class="form-control" ng-model="profilesFilters.position" placeholder="filter by position" ng-enter="getProfiles()">
 					</div>
 					<div class="col-xs-3">
-						<span class="btn btn-info">Search</span>
+						<span class="btn btn-info" ng-click="getProfiles()">Search</span>
 					</div>
 				</div>
 				<!-- /.box-header -->
@@ -40,8 +40,8 @@
 									</thead>
 									<tbody>
 										<tr role="row" ng-repeat="profile in profiles track by $index">
-											<td><span ng-click="openProfile(profile.id)">{{profile.email}}</span></td>
-											<td>{{profile.name}}</td>
+											<td><span ng-click="openProfile(profile.email)">{{profile.email}}</span></td>
+											<td>{{profile.firstName}} {{profile.lastName}}</td>
 											<td>{{profile.position}}</td>
 											<td>{{profile.team}}</td>
 											<td style="text-align:center;"><span class="badge" ng-class="scoreBadgeCollor(profile.score)">{{profile.score}}</span></td>

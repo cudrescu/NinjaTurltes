@@ -64,8 +64,9 @@
   line-height: 16px;
   font-size: 14px;
 }
-.profilePage .skillTab{
-
+.profilePage .skillTab .progress-bar,
+.profilePage .technologieName{
+	color:#333;
 }
 .profilePage .skillName{
 

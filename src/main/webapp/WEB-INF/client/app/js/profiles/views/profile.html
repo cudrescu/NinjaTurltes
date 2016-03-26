@@ -10,12 +10,12 @@
 			<div class="box">
 				<div class="box-body profilePage">
 					<div ng-repeat="technologie in profile.technologies track by $index" class="technologieTab">
-						<span class="technologieName label" ng-class="labelScoreClass(technologie)">{{technologie.name}} - {{technologie.score}}</span>
+						<span class="technologieName label" style="background-color:{{labelScoreClass(technologie)}}">{{technologie.name}} - {{technologie.score}}</span>
 						<div>
 							<div ng-repeat="skill in technologie.skils" class="skillTab">
 								<span class="skillName"></span>
 								<div class="progress progress-s">
-	                <div class="progress-bar " ng-class="progressBarClassColor(skill.score)" style="width: {{skill.score*10}}%">{{skill.name}} - {{skill.score}}</div>
+	                <div class="progress-bar " style="background-color:{{progressBarClassColor(skill.score)}};width: {{skill.score*10}}%">{{skill.name}} - {{skill.score}}</div>
 	              </div>
 							</div>
 						</div>
