@@ -125,3 +125,12 @@ INSERT INTO USER (ID, EMAIL, PASSWORD, ENABLED, ROLE_ID, PROFILE_ID)
     VALUES (24, 'laura.dumitrescu@email.com', '$2a$10$ZaicZn7O8kK8/s/hJydTTuvxsObLoSfkU9Jn8VWOHZamwZpH2NLIe', b'1', 3, 24);
 INSERT INTO USER (ID, EMAIL, PASSWORD, ENABLED, ROLE_ID, PROFILE_ID)
     VALUES (25, 'sergiu.florescu@myspace.com', '$2a$10$ZaicZn7O8kK8/s/hJydTTuvxsObLoSfkU9Jn8VWOHZamwZpH2NLIe', b'1', 3, 25);
+
+# Insert skill_category
+INSERT INTO SKILL_CATEGORY(`ID`, `NAME`, `VERSION`, `CREATED`) VALUES ('1', 'Technical skill', '0', '2016-03-26 19:08:10');
+
+# Insert skill
+INSERT INTO SKILL (`ID`, `NAME`, `VERSION`, `CREATED`, `SKILL_CATEGORY_ID`) VALUES ('1', 'Java', '0', '2016-03-26 19:08:10', '1');
+
+#Insert profile skill
+INSERT INTO PROFILE_has_SKILL (`ID`, `PROFILE_ID`, `SKILL_ID`, `SCORE`, `VERSION`, `CREATED`) VALUES ('1', '1', '1', '9', '0', '2016-03-26 19:08:10');

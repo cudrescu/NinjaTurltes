@@ -2,8 +2,11 @@ package com.endava.hackathon.service.impl;
 
 import com.endava.hackathon.criteria.*;
 import com.endava.hackathon.dto.ProfileFilter;
+import com.endava.hackathon.dto.ProfileSkill;
+import com.endava.hackathon.dto.Skill;
 import com.endava.hackathon.dto.UserProfile;
 import com.endava.hackathon.exceptions.UserNotFoundException;
+import com.endava.hackathon.model.ProfileHasSkillEntity;
 import com.endava.hackathon.model.UserEntity;
 import com.endava.hackathon.repository.UserRepository;
 import com.endava.hackathon.service.UserService;
@@ -42,7 +45,14 @@ public class UserServiceImpl implements UserService {
         if(userEntity == null) {
             throw new UserNotFoundException("User with email " + email + " doesn't exist");
         }
-        return mapper.map(userEntity, UserProfile.class);
+        UserProfile userProfile =  mapper.map(userEntity, UserProfile.class);
+        List<ProfileSkill> skillList = new ArrayList<>();
+        for(ProfileHasSkillEntity profileHasSkillEntity : userEntity.getProfileEntity().getProfileHasSkillEntityList()) {
+            skillList.add(mapper.map(profileHasSkillEntity, ProfileSkill.class));
+        }
+        userProfile.setSkillList(skillList);
+
+        return userProfile;
     }
 
     @Override
@@ -56,12 +66,18 @@ public class UserServiceImpl implements UserService {
         if(searchCriteria != null && !searchCriteria.isEmpty()){
             specification = SpecificationBuilder.makeSearchSpecification(searchCriteria, false);
         }
-        Page<UserEntity> userEntityPage = userRepository.findAll(specification, pageable);
 
+        Page<UserEntity> userEntityPage = userRepository.findAll(specification, pageable);
         if(userEntityPage.getContent() != null && !userEntityPage.getContent().isEmpty()) {
             userProfiles = new ArrayList<>();
             for(UserEntity userEntity : userEntityPage.getContent()) {
-                userProfiles.add(mapper.map(userEntity, UserProfile.class));
+                UserProfile userProfile = mapper.map(userEntity, UserProfile.class);
+                List<ProfileSkill> skillList = new ArrayList<>();
+                for(ProfileHasSkillEntity profileHasSkillEntity : userEntity.getProfileEntity().getProfileHasSkillEntityList()) {
+                    skillList.add(mapper.map(profileHasSkillEntity, ProfileSkill.class));
+                }
+                userProfile.setSkillList(skillList);
+                userProfiles.add(userProfile);
             }
         }
 

@@ -8,49 +8,27 @@ import java.util.List;
 @Table(name="PROFILE_has_SKILL")
 public class ProfileHasSkillEntity extends AbstractPersistable implements Serializable {
 
-    @Embeddable
-    class ProfileHasSkillEntityPK implements Serializable {
-        @ManyToOne(fetch = FetchType.EAGER)
-        @JoinColumn(name = "PROFILE_ID", nullable = false)
-        private ProfileEntity profileEntity;
+    @Id
+    @Column(name = "ID")
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
 
-        @ManyToOne(fetch = FetchType.EAGER)
-        @JoinColumn(name = "SKILL_ID", nullable = false)
-        private SkillEntity skillEntity;
-
-        public ProfileHasSkillEntityPK(ProfileEntity profileEntity, SkillEntity skillEntity) {
-            this.profileEntity = profileEntity;
-            this.skillEntity = skillEntity;
-        }
-
-        public ProfileEntity getProfileEntity() {
-            return profileEntity;
-        }
-
-        public void setProfileEntity(ProfileEntity profileEntity) {
-            this.profileEntity = profileEntity;
-        }
-
-        public SkillEntity getSkillEntity() {
-            return skillEntity;
-        }
-
-        public void setSkillEntity(SkillEntity skillEntity) {
-            this.skillEntity = skillEntity;
-        }
-    }
-
-    @EmbeddedId
-    private ProfileHasSkillEntityPK id;
-
-    @Column(name="SCORE")
+    @Column(name = "SCORE")
     private Double score;
 
-    public ProfileHasSkillEntityPK getId() {
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "PROFILE_ID")
+    private ProfileEntity profileEntity;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "SKILL_ID")
+    private SkillEntity skillEntity;
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(ProfileHasSkillEntityPK id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -60,5 +38,21 @@ public class ProfileHasSkillEntity extends AbstractPersistable implements Serial
 
     public void setScore(Double score) {
         this.score = score;
+    }
+
+    public ProfileEntity getProfileEntity() {
+        return profileEntity;
+    }
+
+    public void setProfileEntity(ProfileEntity profileEntity) {
+        this.profileEntity = profileEntity;
+    }
+
+    public SkillEntity getSkillEntity() {
+        return skillEntity;
+    }
+
+    public void setSkillEntity(SkillEntity skillEntity) {
+        this.skillEntity = skillEntity;
     }
 }

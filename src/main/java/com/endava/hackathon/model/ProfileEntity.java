@@ -23,7 +23,7 @@ public class ProfileEntity extends AbstractPersistable implements Serializable {
     @JoinColumn(name = "USER_POSITION_ID", nullable = false)
     private UserPositionEntity userPositionEntity;
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "id.profileEntity")
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "profileEntity")
     private List<ProfileHasSkillEntity> profileHasSkillEntityList;
 
     public Long getId() {
