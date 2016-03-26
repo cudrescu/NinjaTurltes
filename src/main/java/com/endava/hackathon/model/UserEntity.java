@@ -7,6 +7,10 @@ import java.io.Serializable;
 @Table(name="USER")
 public class UserEntity extends AbstractPersistable implements Serializable {
 
+    public static final String EMAIL = "email";
+    public static final String FIRST_NAME = "profileEntity.firstName";
+    public static final String LAST_NAME = "profileEntity.lastName";
+
     @Id
     @Column(name = "ID")
     @GeneratedValue(strategy = GenerationType.AUTO)
