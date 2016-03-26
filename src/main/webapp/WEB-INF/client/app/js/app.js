@@ -11,24 +11,26 @@
                     abstract:true,
                     controller:'AppbaseCtrl',
                     templateUrl:'js/commons/views/base.html'
-                })
-                .state('dashboard', {
+                }).state('dashboard', {
                     url:'/dashboard',
                     parent:'appbase',
                     templateUrl: 'js/dashboard/views/dashboard.html',
                     controller: 'DashboardCtrl'
-                })
-                .state('users', {
+                }).state('users', {
                     url:'/users',
                     parent:'appbase',
                     templateUrl: 'js/users/views/users.html',
                     controller: 'UsersCtrl'
-                })
-                .state('profiles', {
+                }).state('profiles', {
                     url:'/profiles',
                     parent:'appbase',
                     templateUrl: 'js/profiles/views/profiles.html',
                     controller: 'ProfilesCtrl'
+                }).state('profile', {
+                    url:'/profile/:id',
+                    parent:'appbase',
+                    templateUrl: 'js/profiles/views/profile.html',
+                    controller: 'ProfileCtrl'
                 }).state('teams', {
                     url:'/teams',
                     parent:'appbase',
@@ -51,6 +53,9 @@
                 function(event, toState, toParams, fromState, fromParams){
                     //console.log(toState.name);
                     $rootScope.currentState = toState.name;
+                    setTimeout(function(){
+                        $(window).resize();
+                    },100);
                 }
             );
 

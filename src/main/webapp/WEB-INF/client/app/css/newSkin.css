@@ -1,0 +1,75 @@
+.skin-black-light .main-header>.navbar,
+.skin-black-light .main-header>.logo,
+.skin-black-light .main-header>.navbar .nav>li>a:hover, .skin-black-light .main-header>.navbar .nav>li>a:active, .skin-black-light .main-header>.navbar .nav>li>a:focus, .skin-black-light .main-header>.navbar .nav .open>a, .skin-black-light .main-header>.navbar .nav .open>a:hover, .skin-black-light .main-header>.navbar .nav .open>a:focus, .skin-black-light .main-header>.navbar .nav>.active>a,
+.skin-black-light .main-header>.logo:hover,
+.skin-black-light .main-header>.navbar .sidebar-toggle:hover{
+	background-color: #FBA01A;
+	/*background-color: #00cbe9;*/
+}
+.skin-black-light .main-header>.navbar .nav>li>a,
+.skin-black-light .main-header>.navbar>.sidebar-toggle,
+.skin-black-light .main-header>.logo{
+	color:#fff;
+}
+.skin-black-light .main-header>.navbar .sidebar-toggle:hover,
+.skin-black-light .main-header>.navbar .nav>li>a:hover, .skin-black-light .main-header>.navbar .nav>li>a:active, .skin-black-light .main-header>.navbar .nav>li>a:focus, .skin-black-light .main-header>.navbar .nav .open>a, .skin-black-light .main-header>.navbar .nav .open>a:hover, .skin-black-light .main-header>.navbar .nav .open>a:focus, .skin-black-light .main-header>.navbar .nav>.active>a{
+	color:#0092A7;
+}
+
+.profilePage{
+
+}
+.profilePage .technologieTab{
+	padding-left: 10px;
+	padding-right: 10px;
+	border-left: 1px dashed #cacaca;
+	border-right: 1px dashed #cacaca;
+	padding-top: 15px;
+	padding-bottom: 5px;
+	margin-bottom: 10px;
+	position: relative;
+}
+.profilePage .technologieTab:after{
+	padding: 0;
+	margin: 0;
+	display: block;
+	content: "";
+	width: 5%;
+	height: 100%;
+	border-top: 1px dashed #cacaca;
+	border-bottom: 1px dashed #cacaca;
+	/* background-color: #000; */
+	position: absolute;
+	right: 0;
+	top: 0px;
+}
+.profilePage .technologieTab:before{
+	padding: 0;
+	margin: 0;
+	display: block;
+	content: "";
+	width: 5%;
+	height: 100%;
+	border-top: 1px dashed #cacaca;
+	border-bottom: 1px dashed #cacaca;
+	/* background-color: #000; */
+	position: absolute;
+	left: 0;
+	top: 0px;
+}
+.profilePage .technologieName{
+	margin-bottom: 15px;
+  display: block;
+  height: 23px;
+  line-height: 16px;
+  font-size: 14px;
+}
+.profilePage .skillTab{
+
+}
+.profilePage .skillName{
+
+}
+.profilePage .progress{
+	margin-bottom: 5px;
+}

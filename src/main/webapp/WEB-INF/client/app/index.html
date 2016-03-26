@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="bower_components/AdminLTE/plugins/fullcalendar/fullcalendar.print.css">
     <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="bower_components/Ionicons/css/ionicons.min.css">
+    <link rel="stylesheet" href="css/newSkin.css">
 
     <script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
     <script type="text/javascript" src="bower_components/angular/angular.js"></script>
@@ -27,7 +28,7 @@
 
 </head>
 
-<body ng-app="hackathon-app" ng-cloak class="hold-transition skin-blue-light sidebar-mini" ng-class="{'hold-transition login-page':currentState=='login'}">
+<body ng-app="hackathon-app" ng-cloak class="hold-transition skin-black-light sidebar-mini" ng-class="{'hold-transition login-page':currentState=='login'}">
 <div ui-view ></div>
 <script src="bower_components/AdminLTE/dist/js/app.js"></script>
 
@@ -40,14 +41,15 @@
 <script type="text/javascript" src="js/commons/controllers/appbaseCtrl.js" charset="UTF-8"></script>
 <script type="text/javascript" src="js/dashboard/controllers/dashboardCtrl.js" charset="UTF-8"></script>
 <script type="text/javascript" src="js/profiles/controllers/profilesCtrl.js" charset="UTF-8"></script>
+<script type="text/javascript" src="js/profiles/controllers/profileCtrl.js" charset="UTF-8"></script>
 <script type="text/javascript" src="js/search/controllers/searchCtrl.js" charset="UTF-8"></script>
 <script type="text/javascript" src="js/teams/controllers/teamsCtrl.js" charset="UTF-8"></script>
 <script type="text/javascript" src="js/users/controllers/usersCtrl.js" charset="UTF-8"></script>
 <script type="text/javascript" src="js/auth/controllers/loginCtrl.js" charset="UTF-8"></script>
 <script type="text/javascript">
-    //$(document).ready(function(){
-        //$(window).resize();
-    //});
+    $(document).ready(function(){
+        $(window).resize();
+    });
 </script>
 </body>
 </html>
