@@ -9,6 +9,7 @@
             $stateProvider
                 .state('appbase',{
                     abstract:true,
+                    controller:'AppbaseCtrl',
                     templateUrl:'js/commons/views/base.html'
                 })
                 .state('dashboard', {
@@ -53,6 +54,6 @@
                 }
             );
 
-        })
+        });
 
 })();
