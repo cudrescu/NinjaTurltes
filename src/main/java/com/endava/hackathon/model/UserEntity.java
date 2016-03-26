@@ -26,7 +26,7 @@ public class UserEntity extends AbstractPersistable implements Serializable {
     @JoinColumn(name = "ROLE_ID", nullable = false)
     private RoleEntity roleEntity;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "PROFILE_ID", nullable = false)
     private ProfileEntity profileEntity;
 
