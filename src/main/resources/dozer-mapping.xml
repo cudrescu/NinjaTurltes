@@ -16,6 +16,23 @@
             <b>lastName</b>
         </field>
     </mapping>
+    
+    <mapping>
+        <class-a>com.endava.hackathon.model.ProfileHasSkillEntity</class-a>
+        <class-b>com.endava.hackathon.dto.ProfileSkill</class-b>
+        <field>
+            <a>skillEntity.name</a>
+            <b>name</b>
+        </field>
+        <field>
+            <a>skillEntity.skillCategoryEntity.name</a>
+            <b>category</b>
+        </field>
+        <field>
+            <a>score</a>
+            <b>score</b>
+        </field>
+    </mapping>
 
     <mapping>
         <class-a>com.endava.hackathon.model.SkillEntity</class-a>
