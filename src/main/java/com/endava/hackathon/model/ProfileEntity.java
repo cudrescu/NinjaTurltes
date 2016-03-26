@@ -2,6 +2,7 @@ package com.endava.hackathon.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Table(name="PROFILE")
@@ -17,6 +18,13 @@ public class ProfileEntity extends AbstractPersistable implements Serializable {
 
     @Column(name="LASTNAME")
     private String lastName;
+
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "USER_POSITION_ID", nullable = false)
+    private UserPositionEntity userPositionEntity;
+
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "profileEntity")
+    private List<ProfileHasSkillEntity> profileHasSkillEntityList;
 
     public Long getId() {
         return id;
@@ -40,5 +48,21 @@ public class ProfileEntity extends AbstractPersistable implements Serializable {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public UserPositionEntity getUserPositionEntity() {
+        return userPositionEntity;
+    }
+
+    public void setUserPositionEntity(UserPositionEntity userPositionEntity) {
+        this.userPositionEntity = userPositionEntity;
+    }
+
+    public List<ProfileHasSkillEntity> getProfileHasSkillEntityList() {
+        return profileHasSkillEntityList;
+    }
+
+    public void setProfileHasSkillEntityList(List<ProfileHasSkillEntity> profileHasSkillEntityList) {
+        this.profileHasSkillEntityList = profileHasSkillEntityList;
     }
 }

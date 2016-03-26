@@ -41,6 +41,8 @@
 
 	<jpa:repositories base-package="com.endava.hackathon.repository" />
 
-	<bean class="org.dozer.spring.DozerBeanMapperFactoryBean"/>
+	<bean class="org.dozer.spring.DozerBeanMapperFactoryBean">
+		<property name="mappingFiles" value="classpath*:/*-mapping.xml"/>
+	</bean>
 
 </beans>
