@@ -6,10 +6,10 @@ import java.util.List;
 
 @Entity
 @Table(name="PROFILE_has_SKILL")
-public class ProfileHasSkillEntity {
+public class ProfileHasSkillEntity extends AbstractPersistable implements Serializable {
 
     @Embeddable
-    class ProfileHasSkillEntityPK {
+    class ProfileHasSkillEntityPK implements Serializable {
         @ManyToOne(fetch = FetchType.EAGER)
         @JoinColumn(name = "PROFILE_ID", nullable = false)
         private ProfileEntity profileEntity;
