@@ -22,12 +22,13 @@ public class UserEntity extends AbstractPersistable implements Serializable {
     @Column(name = "ENABLED")
     private boolean enabled;
 
-    @Column(name = "CREATED")
-    private Date created;
-
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "ROLE_ID", nullable = false)
     private RoleEntity roleEntity;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "PROFILE_ID", nullable = false)
+    private ProfileEntity profileEntity;
 
     public Long getId() {
         return id;
@@ -61,19 +62,19 @@ public class UserEntity extends AbstractPersistable implements Serializable {
         this.enabled = enabled;
     }
 
-    public Date getCreated() {
-        return created;
-    }
-
-    public void setCreated(Date created) {
-        this.created = created;
-    }
-
     public RoleEntity getRoleEntity() {
         return roleEntity;
     }
 
     public void setRoleEntity(RoleEntity roleEntity) {
         this.roleEntity = roleEntity;
+    }
+
+    public ProfileEntity getProfileEntity() {
+        return profileEntity;
+    }
+
+    public void setProfileEntity(ProfileEntity profileEntity) {
+        this.profileEntity = profileEntity;
     }
 }
