@@ -1,6 +1,6 @@
 package com.endava.hackathon.dto;
 
-public class UserPosition {
+public class SkillCategory {
     private String name;
 
     public String getName() {

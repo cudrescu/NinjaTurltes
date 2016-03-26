@@ -18,11 +18,6 @@ public class ProfileHasSkillEntity extends AbstractPersistable implements Serial
         @JoinColumn(name = "SKILL_ID", nullable = false)
         private SkillEntity skillEntity;
 
-        public ProfileHasSkillEntityPK(ProfileEntity profileEntity, SkillEntity skillEntity) {
-            this.profileEntity = profileEntity;
-            this.skillEntity = skillEntity;
-        }
-
         public ProfileEntity getProfileEntity() {
             return profileEntity;
         }

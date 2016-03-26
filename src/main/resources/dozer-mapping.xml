@@ -17,4 +17,34 @@
         </field>
     </mapping>
 
+    <mapping>
+        <class-a>com.endava.hackathon.model.SkillEntity</class-a>
+        <class-b>com.endava.hackathon.dto.Skill</class-b>
+        <field>
+            <a>name</a>
+            <b>name</b>
+        </field>
+        <field>
+            <a>skillCategoryEntity.name</a>
+            <b>skillCategory</b>
+        </field>
+    </mapping>
+
+    <mapping>
+        <class-a>com.endava.hackathon.model.SkillCategoryEntity</class-a>
+        <class-b>com.endava.hackathon.dto.SkillCategory</class-b>
+        <field>
+            <a>name</a>
+            <b>name</b>
+        </field>
+    </mapping>
+
+    <mapping>
+        <class-a>com.endava.hackathon.model.UserPositionEntity</class-a>
+        <class-b>com.endava.hackathon.dto.UserPosition</class-b>
+        <field>
+            <a>name</a>
+            <b>name</b>
+        </field>
+    </mapping>
 </mappings>
