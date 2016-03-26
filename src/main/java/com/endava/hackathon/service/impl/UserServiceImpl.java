@@ -3,7 +3,7 @@ package com.endava.hackathon.service.impl;
 import com.endava.hackathon.criteria.*;
 import com.endava.hackathon.dto.ProfileFilter;
 import com.endava.hackathon.dto.ProfileSkill;
-import com.endava.hackathon.dto.Skill;
+import com.endava.hackathon.dto.SearchResult;
 import com.endava.hackathon.dto.UserProfile;
 import com.endava.hackathon.exceptions.UserNotFoundException;
 import com.endava.hackathon.model.ProfileHasSkillEntity;
@@ -56,7 +56,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<UserProfile> searchUserProfiles(ProfileFilter profileFilter) {
+    public SearchResult<UserProfile> searchUserProfiles(ProfileFilter profileFilter) {
 
         List<SearchCriteria<UserEntity>> searchCriteria = buildSearchCriteria(profileFilter);
         final Pageable pageable = new PageRequest(profileFilter.getPageNumber()-1, profileFilter.getPageSize());
@@ -81,7 +81,7 @@ public class UserServiceImpl implements UserService {
             }
         }
 
-        return userProfiles;
+        return new SearchResult<>(userProfiles, userEntityPage.getTotalElements());
     }
 
     private List<SearchCriteria<UserEntity>> buildSearchCriteria(ProfileFilter profileFilter) {
