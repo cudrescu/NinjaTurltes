@@ -17,7 +17,10 @@ public class SkillEntity extends AbstractPersistable implements Serializable {
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "SKILL_CATEGORY_ID", nullable = false)
-    private SkillEntity skillEntity;
+    private SkillCategoryEntity skillCategoryEntity;
+
+    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "skillEntityList")
+    private ProfileEntity profileEntity;
 
     public Long getId() {
         return id;
@@ -35,11 +38,19 @@ public class SkillEntity extends AbstractPersistable implements Serializable {
         this.name = name;
     }
 
-    public SkillEntity getSkillEntity() {
-        return skillEntity;
+    public SkillCategoryEntity getSkillCategoryEntity() {
+        return skillCategoryEntity;
     }
 
-    public void setSkillEntity(SkillEntity skillEntity) {
-        this.skillEntity = skillEntity;
+    public void setSkillCategoryEntity(SkillCategoryEntity skillCategoryEntity) {
+        this.skillCategoryEntity = skillCategoryEntity;
+    }
+
+    public ProfileEntity getProfileEntity() {
+        return profileEntity;
+    }
+
+    public void setProfileEntity(ProfileEntity profileEntity) {
+        this.profileEntity = profileEntity;
     }
 }
