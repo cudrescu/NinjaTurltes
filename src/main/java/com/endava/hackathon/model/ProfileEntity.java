@@ -23,11 +23,8 @@ public class ProfileEntity extends AbstractPersistable implements Serializable {
     @JoinColumn(name = "USER_POSITION_ID", nullable = false)
     private UserPositionEntity userPositionEntity;
 
-    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinTable(name = "PROFILE_has_SKILL", catalog = "hackDB",
-            joinColumns = { @JoinColumn(name = "SKILL_ID", nullable = false, updatable = false) },
-            inverseJoinColumns = { @JoinColumn(name = "PROFILE_ID", nullable = false, updatable = false) })
-    private List<SkillEntity> skillEntityList;
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "id.profileEntity")
+    private List<ProfileHasSkillEntity> profileHasSkillEntityList;
 
     public Long getId() {
         return id;
@@ -61,11 +58,11 @@ public class ProfileEntity extends AbstractPersistable implements Serializable {
         this.userPositionEntity = userPositionEntity;
     }
 
-    public List<SkillEntity> getSkillEntityList() {
-        return skillEntityList;
+    public List<ProfileHasSkillEntity> getProfileHasSkillEntityList() {
+        return profileHasSkillEntityList;
     }
 
-    public void setSkillEntityList(List<SkillEntity> skillEntityList) {
-        this.skillEntityList = skillEntityList;
+    public void setProfileHasSkillEntityList(List<ProfileHasSkillEntity> profileHasSkillEntityList) {
+        this.profileHasSkillEntityList = profileHasSkillEntityList;
     }
 }

@@ -19,9 +19,6 @@ public class SkillEntity extends AbstractPersistable implements Serializable {
     @JoinColumn(name = "SKILL_CATEGORY_ID", nullable = false)
     private SkillCategoryEntity skillCategoryEntity;
 
-    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "skillEntityList")
-    private ProfileEntity profileEntity;
-
     public Long getId() {
         return id;
     }
@@ -44,13 +41,5 @@ public class SkillEntity extends AbstractPersistable implements Serializable {
 
     public void setSkillCategoryEntity(SkillCategoryEntity skillCategoryEntity) {
         this.skillCategoryEntity = skillCategoryEntity;
-    }
-
-    public ProfileEntity getProfileEntity() {
-        return profileEntity;
-    }
-
-    public void setProfileEntity(ProfileEntity profileEntity) {
-        this.profileEntity = profileEntity;
     }
 }
