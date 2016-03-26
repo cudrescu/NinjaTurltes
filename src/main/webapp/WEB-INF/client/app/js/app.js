@@ -5,7 +5,7 @@
 
         .config(function ($stateProvider, $urlRouterProvider) {
 
-            $urlRouterProvider.otherwise('/dashboard');
+            $urlRouterProvider.otherwise('/login');
             $stateProvider
                 .state('appbase',{
                     abstract:true,
@@ -38,6 +38,10 @@
                     parent:'appbase',
                     templateUrl: 'js/search/views/search.html',
                     controller: 'SearchCtrl'
+                }).state('login', {
+                    url:'/login',
+                    templateUrl: 'js/auth/views/login.html',
+                    controller: 'LoginCtrl'
                 });
         })
         .run(function($rootScope, $httpBackend) {
