@@ -4,6 +4,7 @@ import com.endava.hackathon.model.UserEntity;
 import com.endava.hackathon.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -19,11 +20,11 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     private UserService userService;
 
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        UserEntity user = userService.findByUsername(username);
+    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+        UserEntity user = userService.findByEmail(email);
 
         if(user == null) {
-            throw new UsernameNotFoundException("The user with name " + username + " was not found");
+            throw new UsernameNotFoundException("The user with email " + email + " was not found");
         }
 
         return getCustomUser(user);
@@ -31,8 +32,8 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
     private UserDetails getCustomUser(UserEntity user) {
         final Set<GrantedAuthority> authorities = new HashSet<GrantedAuthority>();
-        //authorities.add(new SimpleGrantedAuthority(user.getRole().getName()));
-        return new CustomUserDetails(user.getUsername(), user.getPassword(), true, true, true, true, authorities, user.getUsername());
+        authorities.add(new SimpleGrantedAuthority(user.getRoleEntity().getDescription()));
+        return new CustomUserDetails(user.getEmail(), user.getPassword(), true, true, true, true, authorities, user.getEmail());
     }
 
 }

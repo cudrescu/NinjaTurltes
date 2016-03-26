@@ -9,7 +9,7 @@ import java.io.Serializable;
 public abstract class AbstractPersistable implements Serializable {
 
     @Version
-    @Column(name="version")
+    @Column(name="VERSION")
     private int version;
 
     public int getVersion() {
