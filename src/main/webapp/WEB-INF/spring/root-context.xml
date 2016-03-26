@@ -10,6 +10,10 @@
 		<context:exclude-filter type="regex" expression="com\.endava\.hackathon\.repository\..*"/>
 	</context:component-scan>
 
+	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="location" value="classpath:properties/db.properties"/>
+	</bean>
+
 	<import resource="classpath*:persistence-appContext.xml"/>
 	<import resource="classpath*:email-dispatcher.xml"/>
 	<import resource="classpath*:spring-security.xml"/>
