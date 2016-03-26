@@ -5,7 +5,7 @@ import java.io.Serializable;
 
 @Entity
 @Table(name="SKILL_CATEGORY")
-public class SkillCategoryEntity extends AbstractPersistable implements Serializable {
+public class SkillCategoryEntity extends AbstractPersistable implements NamedEntity, Serializable {
 
     @Id
     @Column(name = "ID")

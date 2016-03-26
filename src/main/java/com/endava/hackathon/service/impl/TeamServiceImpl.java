@@ -1,8 +1,7 @@
 package com.endava.hackathon.service.impl;
 
-import com.endava.hackathon.dto.Skill;
-import com.endava.hackathon.repository.SkillRepository;
-import com.endava.hackathon.service.SkillService;
+import com.endava.hackathon.repository.TeamRepository;
+import com.endava.hackathon.service.TeamService;
 import com.endava.hackathon.util.MappingUtils;
 import org.dozer.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,16 +12,16 @@ import java.util.List;
 
 @Service
 @Transactional(readOnly = true)
-public class SkillServiceImpl implements SkillService {
+public class TeamServiceImpl implements TeamService {
 
     @Autowired
-    private SkillRepository skillRepository;
+    private TeamRepository teamRepository;
 
     @Autowired
     private Mapper mapper;
 
     @Override
-    public List<Skill> getAll() {
-        return MappingUtils.mapList(mapper, skillRepository.findAll(), Skill.class);
+    public List<String> getTeamNames() {
+        return MappingUtils.getEntityNames(teamRepository.findAll());
     }
 }

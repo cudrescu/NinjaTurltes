@@ -5,5 +5,5 @@ import com.endava.hackathon.dto.SkillCategory;
 import java.util.List;
 
 public interface SkillCategoryService {
-    List<SkillCategory> getAll();
+    List<String> getAll();
 }

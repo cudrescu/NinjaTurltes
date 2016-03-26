@@ -22,7 +22,7 @@ public class SkillCategoryController {
     @RequestMapping(value = "/all", method = RequestMethod.GET)
     @ResponseBody
     @ResponseStatus(HttpStatus.OK)
-    public List<SkillCategory> search() {
+    public List<String> search() {
         return skillCategoryService.getAll();
     }
 }

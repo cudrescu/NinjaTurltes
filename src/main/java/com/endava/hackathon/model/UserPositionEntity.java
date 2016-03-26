@@ -5,7 +5,7 @@ import java.io.Serializable;
 
 @Entity
 @Table(name="USER_POSITION")
-public class UserPositionEntity extends AbstractPersistable implements Serializable {
+public class UserPositionEntity extends AbstractPersistable implements NamedEntity, Serializable {
 
     @Id
     @Column(name = "ID")

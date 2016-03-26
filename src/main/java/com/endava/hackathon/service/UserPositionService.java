@@ -5,5 +5,5 @@ import com.endava.hackathon.dto.UserPosition;
 import java.util.List;
 
 public interface UserPositionService {
-    List<UserPosition> getAll();
+    List<String> getAll();
 }

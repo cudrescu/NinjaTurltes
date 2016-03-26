@@ -1,0 +1,7 @@
+package com.endava.hackathon.service;
+
+import java.util.List;
+
+public interface TeamService {
+    List<String> getTeamNames();
+}

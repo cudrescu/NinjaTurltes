@@ -1,9 +1,8 @@
 package com.endava.hackathon.service.impl;
 
-import com.endava.hackathon.dto.SkillCategory;
 import com.endava.hackathon.repository.SkillCategoryRepository;
 import com.endava.hackathon.service.SkillCategoryService;
-import com.endava.hackathon.util.DozerUtils;
+import com.endava.hackathon.util.MappingUtils;
 import org.dozer.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,7 +21,7 @@ public class SkillCategoryServiceImpl implements SkillCategoryService {
     private Mapper mapper;
 
     @Override
-    public List<SkillCategory> getAll() {
-        return DozerUtils.mapList(mapper, skillCategoryRepository.findAll(), SkillCategory.class);
+    public List<String> getAll() {
+        return MappingUtils.getEntityNames(skillCategoryRepository.findAll());
     }
 }
