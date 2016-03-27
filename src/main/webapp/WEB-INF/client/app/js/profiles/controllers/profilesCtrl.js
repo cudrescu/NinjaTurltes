@@ -86,8 +86,5 @@ angular.module('hackathon-app')
 				return 'bg-yellow';
 			}
 			return 'bg-red';
-		}
-		$scope.openProfile = function(id){
-			$state.go('profile',{id:id});
-		}
+		};
 	}]);
