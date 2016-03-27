@@ -8,8 +8,7 @@ public class Team {
 
     private String name;
     private String project;
-    private User owner;
-    private List<User> members;
+    private List<UserProfile> members;
 
     public String getName() {
         return name;
@@ -27,19 +26,11 @@ public class Team {
         this.project = project;
     }
 
-    public User getOwner() {
-        return owner;
-    }
-
-    public void setOwner(User owner) {
-        this.owner = owner;
-    }
-
-    public List<User> getMembers() {
+    public List<UserProfile> getMembers() {
         return members;
     }
 
-    public void setMembers(List<User> members) {
+    public void setMembers(List<UserProfile> members) {
         this.members = members;
     }
 }

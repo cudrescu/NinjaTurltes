@@ -1,8 +1,7 @@
 (function () {
     'use strict';
 
-    angular.module('hackathon-app', ['ui.router','ui.bootstrap','ng-fusioncharts'])
-
+    angular.module('hackathon-app', ['ui.router','ui.bootstrap', 'ng-fusioncharts', 'blockUI' ])
 
         .config(function ($stateProvider, $urlRouterProvider) {
 

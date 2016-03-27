@@ -80,9 +80,5 @@
             <a>project</a>
             <b>project</b>
         </field>
-        <field>
-            <a>owner.email</a>
-            <b>owner</b>
-        </field>
     </mapping>
 </mappings>
