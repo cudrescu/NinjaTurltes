@@ -10,6 +10,5 @@ angular.module("hackathon-app").factory('LoginServices',['$http', function($http
 				return response.data;
 			});
 		}
-
 	}
-}])
+}]);
