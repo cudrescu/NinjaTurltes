@@ -308,7 +308,7 @@
 				<div class="box box-solid">
             <div class="box-body">
               <div class="">
-
+								<linechart data="data" options="options"></linechart>
               </div>
 							<div ng-if="teamMembers.length==0">
 									<h4 class="title">There are no teams members for recomandation</h4>
@@ -319,7 +319,7 @@
 			</div>
 			<div class="col-md-6">
 				<div class="box box-solid">
-						<div class="box-header"><h3 class="box-title">Profiles selected</h3></div>
+						<div class="box-header"><h3 class="box-title" style="text-align:center;display:block;">Profiles selected</h3></div>
             <div class="box-body">
               <div class="">
 
@@ -341,7 +341,7 @@
 											<td>{{profile.position}}</td>
 											<td>{{profile.team}}</td>
 											<td style="text-align:center;"><span class="badge" ng-class="scoreBadgeCollor(profile.score)">{{profile.score}}</span></td>
-											<td><span class="btn btn-default btn-xs" ng-click="removeProfileFromSelection(profile)">Remove from selection</span><span class="btn btn-default btn-xs" ng-click="selectProfileToTeam(profile)">Add to team</span></td>
+											<td><span ng-click="removeProfileFromSelection(profile)"><i class="fa fa-fw fa-remove"></i></span><span ng-click="selectProfileToTeam(profile)"><i class="fa fa-fw fa-exchange"></i></span></td>
 										</tr>
 									</tbody>
 								</table>
@@ -352,7 +352,7 @@
 			</div>
 			<div class="col-md-6">
 				<div class="box box-solid">
-						<div class="box-header"><h3 class="box-title">Team to propose</h3></div>
+						<div class="box-header"><h3 class="box-title" style="text-align:center;display:block;">Team to propose</h3></div>
             <div class="box-body">
               <div class="">
 								<table id="example2" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info">
@@ -373,7 +373,7 @@
 											<td>{{profile.position}}</td>
 											<td>{{profile.team}}</td>
 											<td style="text-align:center;"><span class="badge" ng-class="scoreBadgeCollor(profile.score)">{{profile.score}}</span></td>
-											<td><span class="btn btn-default btn-xs" ng-click="removeProfileFromTeam(profile)">Remove from team</span></td>
+											<td><span ng-click="removeProfileFromTeam(profile)"><i class="fa fa-fw fa-exchange"></i></span></td>
 										</tr>
 									</tbody>
 								</table>
