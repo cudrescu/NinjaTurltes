@@ -1,6 +1,6 @@
 'use strict';
 angular.module('hackathon-app')
-    .controller('AppbaseCtrl', ['$scope', '$state', '$modal', 'LoginServices', function ($scope, $state, $modal, LoginServices) {
+    .controller('AppbaseCtrl', ['$scope', '$state', '$modal', '$http', 'LoginServices', function ($scope, $state, $modal, $http, LoginServices) {
 
         $scope.logout = function () {
             LoginServices.logout().then(function (response) {
@@ -198,7 +198,9 @@ angular.module('hackathon-app')
 
             modalInstance.result.then(function (result) {
               result.members = $scope.profilesSelected;
-              console.log(result);
+              $http.post('/apiproxy/api/team/save', result).then(function(result) {
+                  console.log('Save successful');
+              });
             })
 
         }
