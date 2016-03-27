@@ -2,7 +2,6 @@ package com.endava.hackathon.controller;
 
 import com.endava.hackathon.dto.RecommendFilter;
 import com.endava.hackathon.dto.UserProfile;
-import com.endava.hackathon.exceptions.UserNotFoundException;
 import com.endava.hackathon.service.RecommendService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

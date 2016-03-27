@@ -28,9 +28,9 @@ public class TeamController {
     }
 
     @RequestMapping(value = "/save", method = RequestMethod.GET)
-     @ResponseBody
-     @ResponseStatus(HttpStatus.OK)
-     public String getSavedTeam(@RequestParam(value = "email") String email) {
+    @ResponseBody
+    @ResponseStatus(HttpStatus.OK)
+    public String getSavedTeam(@RequestParam(value = "email") String email) {
         return savedTeams.get(email);
     }
 
