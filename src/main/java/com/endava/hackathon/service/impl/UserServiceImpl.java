@@ -119,9 +119,7 @@ public class UserServiceImpl implements UserService {
         if(!StringUtils.isEmpty(profileFilter.getFirstName())) {
             criteria.add(new UserFirstNameSearchCriteria(profileFilter.getFirstName()));
         }
-        if(!StringUtils.isEmpty(profileFilter.getLastName())) {
-            criteria.add(new UserLastNameSearchCriteria(profileFilter.getLastName()));
-        }
+
         return criteria;
     }
 }

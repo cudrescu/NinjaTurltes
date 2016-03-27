@@ -8,6 +8,9 @@ import java.util.List;
 @Table(name="PROFILE")
 public class ProfileEntity extends AbstractPersistable implements Serializable {
 
+    public static final String FIRST_NAME = "firstName";
+    public static final String LAST_NAME = "lastName";
+
     @Id
     @Column(name = "ID")
     @GeneratedValue(strategy = GenerationType.AUTO)
