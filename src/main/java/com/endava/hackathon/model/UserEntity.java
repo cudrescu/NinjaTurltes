@@ -9,8 +9,7 @@ import java.util.List;
 public class UserEntity extends AbstractPersistable implements Serializable {
 
     public static final String EMAIL = "email";
-    public static final String FIRST_NAME = "profileEntity.firstName";
-    public static final String LAST_NAME = "profileEntity.lastName";
+    public static final String PROFILE = "profileEntity";
 
     @Id
     @Column(name = "ID")

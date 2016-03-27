@@ -4,7 +4,9 @@ angular.module('hackathon-app')
 
 		$scope.technologies = formatSkills(skills, skillCategories);
 		$scope.positions = positions;
-		$scope.accordionStatus = initAccordions(skillCategories.length);
+		$scope.accordionStatus = initAccordions(skillCategories.length, true);
+		$scope.profiles = [];
+		$scope.showResultsPanel = false;
 
 		function formatSkills(skills, skillCategories) {
 			var formattedSkills = [];
@@ -21,10 +23,10 @@ angular.module('hackathon-app')
 			return formattedSkills;
 		}
 
-		function initAccordions(count) {
+		function initAccordions(count, value) {
 			var accordionStatus = [];
 			for(var i = 0; i<count; i++) {
-				accordionStatus[i] = true;
+				accordionStatus[i] = value;
 			}
 			return accordionStatus;
 		}
@@ -58,11 +60,20 @@ angular.module('hackathon-app')
 			return $scope.accordionStatus[index];
 		};
 
+		$scope.scoreBadgeCollor = function(x){
+			if(x>8) return 'bg-green';
+			if(x>6) return 'bg-light-blue';
+			if(x>4) return 'bg-yellow';
+			return 'bg-red';
+		};
+
 		$scope.getRecommendedMembers = function() {
 			var requestData = buildRequestData($scope.filter);
 			SearchService.recommendMembers(requestData).then(
 				function(result) {
-					console.log(result);
+					$scope.accordionStatus = initAccordions(skillCategories.length, false);
+					$scope.showResultsPanel = true;
+					$scope.profiles = result.data;
 				}
 			)
 		}

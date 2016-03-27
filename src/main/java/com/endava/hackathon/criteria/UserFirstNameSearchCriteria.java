@@ -1,5 +1,6 @@
 package com.endava.hackathon.criteria;
 
+import com.endava.hackathon.model.ProfileEntity;
 import com.endava.hackathon.model.UserEntity;
 
 import javax.persistence.criteria.*;
@@ -14,7 +15,7 @@ public class UserFirstNameSearchCriteria implements SearchCriteria<UserEntity> {
 
     @Override
     public Predicate getPredicate(Root<UserEntity> root, CriteriaQuery<?> query, CriteriaBuilder builder) {
-        Path<String> userFirstNamePath = root.get(UserEntity.FIRST_NAME);
+        Path<String> userFirstNamePath = root.get(UserEntity.PROFILE).get(ProfileEntity.FIRST_NAME);
         return builder.like(userFirstNamePath, this.firstName+"%");
     }
 }

@@ -7,6 +7,8 @@ public class UserProfile {
     private String email;
     private String firstName;
     private String lastName;
+    private String position;
+    private Double score;
     private List<ProfileSkill> skillList;
 
     public String getEmail() {
@@ -31,6 +33,22 @@ public class UserProfile {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public String getPosition() {
+        return position;
+    }
+
+    public void setPosition(String position) {
+        this.position = position;
+    }
+
+    public Double getScore() {
+        return score;
+    }
+
+    public void setScore(Double score) {
+        this.score = score;
     }
 
     public List<ProfileSkill> getSkillList() {

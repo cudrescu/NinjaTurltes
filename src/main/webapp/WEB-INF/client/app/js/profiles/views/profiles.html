@@ -16,7 +16,12 @@
 						<input class="form-control" ng-model="profilesFilters.lastName" placeholder="filter by name" ng-enter="getProfiles()">
 					</div>
 					<div class="col-xs-3">
-						<input class="form-control" ng-model="profilesFilters.position" placeholder="filter by position" ng-enter="getProfiles()">
+						<select name="searchField"
+								class="form-control"
+								ng-model="profilesFilters.position"
+								ng-options="position for position in positions">
+							<option value='' selected>No value</option>
+						</select>
 					</div>
 					<div class="col-xs-3">
 						<span class="btn btn-info" ng-click="getProfiles()">Search</span>
@@ -34,17 +39,15 @@
 											<th tabindex="0" rowspan="1" colspan="1" >Email</th>
 											<th tabindex="0" rowspan="1" colspan="1" >Name</th>
 											<th tabindex="0" rowspan="1" colspan="1" >Position</th>
-											<th tabindex="0" rowspan="1" colspan="1" >Team</th>
 											<th tabindex="0" rowspan="1" colspan="1" style="width:50px;text-align:center;">Score</th>
 											<th tabindex="0" rowspan="1" colspan="1" style="width:50px;text-align:center;">Action</th>
 										</tr>
 									</thead>
 									<tbody>
 										<tr role="row" ng-repeat="profile in profiles track by $index">
-											<td><span ng-click="openProfile(profile.email)">{{profile.email}}</span></td>
+											<td><span><a ui-sref="profile({id:profile.email})">{{profile.email}}</a></span></td>
 											<td>{{profile.firstName}} {{profile.lastName}}</td>
 											<td>{{profile.position}}</td>
-											<td>{{profile.team}}</td>
 											<td style="text-align:center;"><span class="badge" ng-class="scoreBadgeCollor(profile.score)">{{profile.score}}</span></td>
 											<td><span ng-click="addProfileToSelection(profile)"><i class="fa fa-fw fa-save" ng-class="{'text-green':ifIsSaved(profile)}"></i></span></td>
 										</tr>
@@ -60,16 +63,16 @@
 								<div class="dataTables_paginate paging_simple_numbers" ng-show="profilePageInfo.totalPages>1">
 									<ul class="pagination">
 										<li class="paginate_button previous" >
-											<a  aria-controls="example2" data-dt-idx="0" tabindex="0" ng-click="changePage(profilesFilters.pageNumber-1)">Previous</a>
+											<a href="javascript:void(0)" aria-controls="example2" data-dt-idx="0" tabindex="0" ng-click="changePage(profilesFilters.pageNumber-1)">Previous</a>
 										</li>
-										<li class="paginate_button active">
-											<a aria-controls="example2" data-dt-idx="1" tabindex="0" ng-click="changePage(1)">1</a>
+										<li class="paginate_button" ng-class="{'active' : profilesFilters.pageNumber == 1}">
+											<a href="javascript:void(0)" aria-controls="example2" data-dt-idx="1" tabindex="0" ng-click="changePage(1)">1</a>
 										</li>
-										<li class="paginate_button ">
-											<a  aria-controls="example2" data-dt-idx="2" tabindex="0" ng-click="changePage(2)">2</a>
+										<li class="paginate_button" ng-class="{'active' : profilesFilters.pageNumber == 2}">
+											<a href="javascript:void(0)" aria-controls="example2" data-dt-idx="2" tabindex="0" ng-click="changePage(2)">2</a>
 										</li>
 										<li class="paginate_button next" id="example2_next">
-											<a  aria-controls="example2" data-dt-idx="7" tabindex="0" ng-click="changePage(profilesFilters.pageNumber+1)">Next</a>
+											<a href="javascript:void(0)" aria-controls="example2" data-dt-idx="7" tabindex="0" ng-click="changePage(profilesFilters.pageNumber+1)">Next</a>
 										</li>
 									</ul>
 								</div>
@@ -77,11 +80,7 @@
 						</div>
 					</div>
 				</div>
-				<!-- /.box-body -->
 			</div>
-			<!-- /.box -->
-
 		</div>
-		<!-- /.col -->
 	</div>
-	<!-- /.row -->
+</section>
