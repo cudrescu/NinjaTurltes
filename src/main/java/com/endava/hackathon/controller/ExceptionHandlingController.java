@@ -25,6 +25,7 @@ public class ExceptionHandlingController {
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ResponseBody
     public ServerResponse badRequest(HttpMessageNotReadableException e) {
+        LOGGER.debug(e.getMessage());
         return new ServerResponse(ServerResponse.Status.ERROR, "The given parameters were not correct.");
     }
 
