@@ -52,6 +52,7 @@ public class UserServiceImpl implements UserService {
         }
         userProfile.setSkillList(skillList);
 
+        computeUserScore(userProfile);
         return userProfile;
     }
 
@@ -77,11 +78,33 @@ public class UserServiceImpl implements UserService {
                     skillList.add(mapper.map(profileHasSkillEntity, ProfileSkill.class));
                 }
                 userProfile.setSkillList(skillList);
+
+                computeUserScore(userProfile);
                 userProfiles.add(userProfile);
             }
         }
 
         return new SearchResult<>(userProfiles, userEntityPage.getTotalElements());
+    }
+
+    private void computeUserScore(UserProfile userProfile) {
+        double totalScore = 0.0;
+        int skillCount = 0;
+
+        if (userProfile != null && userProfile.getSkillList() != null) {
+
+            for (ProfileSkill profileSkill : userProfile.getSkillList()) {
+                if (profileSkill != null && profileSkill.getScore() != null) {
+                    totalScore += profileSkill.getScore();
+                    skillCount++;
+                }
+            }
+
+        }
+
+        if (userProfile != null) {
+            userProfile.setScore(totalScore / skillCount);
+        }
     }
 
     private List<SearchCriteria<UserEntity>> buildSearchCriteria(ProfileFilter profileFilter) {

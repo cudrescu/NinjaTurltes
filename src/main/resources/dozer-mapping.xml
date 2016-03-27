@@ -15,6 +15,10 @@
             <a>profileEntity.lastName</a>
             <b>lastName</b>
         </field>
+        <field>
+            <a>profileEntity.userPositionEntity.name</a>
+            <b>position</b>
+        </field>
     </mapping>
 
     <mapping>
