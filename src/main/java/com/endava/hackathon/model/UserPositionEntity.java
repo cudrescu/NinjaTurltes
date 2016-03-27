@@ -7,6 +7,7 @@ import java.io.Serializable;
 @Table(name="USER_POSITION")
 public class UserPositionEntity extends AbstractPersistable implements NamedEntity, Serializable {
 
+    public static final String NAME = "name";
     @Id
     @Column(name = "ID")
     @GeneratedValue(strategy = GenerationType.AUTO)

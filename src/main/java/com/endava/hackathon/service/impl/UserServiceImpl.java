@@ -120,6 +120,10 @@ public class UserServiceImpl implements UserService {
             criteria.add(new UserFirstNameSearchCriteria(profileFilter.getFirstName()));
         }
 
+        if(!StringUtils.isEmpty(profileFilter.getPosition())) {
+            criteria.add(new UserPositionSearchCriteria(profileFilter.getPosition()));
+        }
+
         return criteria;
     }
 }

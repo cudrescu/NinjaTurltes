@@ -17,9 +17,6 @@ public class UserPositionServiceImpl implements UserPositionService {
     @Autowired
     private UserPositionRepository userPositionRepository;
 
-    @Autowired
-    private Mapper mapper;
-
     @Override
     public List<String> getAll() {
         return MappingUtils.getEntityNames(userPositionRepository.findAll());
