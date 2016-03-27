@@ -13,16 +13,17 @@ import java.util.*;
 @Service
 @Transactional(readOnly = true)
 public class RecommendServiceImpl implements RecommendService {
-    private final static Integer PAGE_SIZE = 10;
+    private final static Integer PAGE_SIZE = 100;
     private final static Integer TOTAL_RECOMMENDED_ITEMS = 5;
 
     @Autowired
     private UserService userService;
 
-    private ProfileFilter initProfileFilter(int pageSize, int pageNumber) {
+    private ProfileFilter initProfileFilter(int pageSize, int pageNumber, String position) {
         ProfileFilter profileFilter = new ProfileFilter();
         profileFilter.setPageSize(pageSize);
         profileFilter.setPageNumber(pageNumber);
+        profileFilter.setPosition(position);
         return profileFilter;
     }
 
@@ -79,14 +80,14 @@ public class RecommendServiceImpl implements RecommendService {
         Long totalItems;
         List<UserProfile> currentUserProfiles;
         {
-            SearchResult<UserProfile> usersSearchResult = userService.searchUserProfiles(initProfileFilter(PAGE_SIZE, pageNumber));
+            SearchResult<UserProfile> usersSearchResult = userService.searchUserProfiles(initProfileFilter(PAGE_SIZE, pageNumber, recommendFilter.getPosition()));
             currentUserProfiles = usersSearchResult.getItems();
             totalItems = usersSearchResult.getTotalItems();
         }
 
         Queue<Pair<Double, UserProfile>> recommendedUserPairs = new PriorityQueue<>(TOTAL_RECOMMENDED_ITEMS + 1);
 
-        while (pageNumber * PAGE_SIZE <= totalItems) {
+        while ((pageNumber - 1) * PAGE_SIZE < totalItems) {
 
             pageNumber++;
 
@@ -95,7 +96,7 @@ public class RecommendServiceImpl implements RecommendService {
                 insertInLimitedSizePriorityQueue(recommendedUserPairs, TOTAL_RECOMMENDED_ITEMS, distance, currentUserProfile);
             }
 
-            currentUserProfiles = userService.searchUserProfiles(initProfileFilter(PAGE_SIZE, pageNumber)).getItems();
+            currentUserProfiles = userService.searchUserProfiles(initProfileFilter(PAGE_SIZE, pageNumber, recommendFilter.getPosition())).getItems();
         }
 
         return extractUserProfiles(recommendedUserPairs);
