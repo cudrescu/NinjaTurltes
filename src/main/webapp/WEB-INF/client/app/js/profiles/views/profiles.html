@@ -36,6 +36,7 @@
 											<th tabindex="0" rowspan="1" colspan="1" >Position</th>
 											<th tabindex="0" rowspan="1" colspan="1" >Team</th>
 											<th tabindex="0" rowspan="1" colspan="1" style="width:50px;text-align:center;">Score</th>
+											<th tabindex="0" rowspan="1" colspan="1" style="width:50px;text-align:center;">Action</th>
 										</tr>
 									</thead>
 									<tbody>
@@ -45,6 +46,7 @@
 											<td>{{profile.position}}</td>
 											<td>{{profile.team}}</td>
 											<td style="text-align:center;"><span class="badge" ng-class="scoreBadgeCollor(profile.score)">{{profile.score}}</span></td>
+											<td><span class="btn btn-default btn-xs" ng-click="addProfileToSelection(profile)">Add to my proposal</span></td>
 										</tr>
 									</tbody>
 								</table>
@@ -52,34 +54,22 @@
 						</div>
 						<div class="row">
 							<div class="col-sm-5">
-								<div class="dataTables_info" id="example2_info" role="status" aria-live="polite">Showing 1 to 10 of 57 entries</div>
+								<div class="dataTables_info" id="example2_info" role="status" aria-live="polite">Showing {{profilesFilters.pageNumber}} to {{profilePageInfo.totalPages}} of {{profilePageInfo.total}} entries</div>
 							</div>
 							<div class="col-sm-7">
-								<div class="dataTables_paginate paging_simple_numbers" id="example2_paginate">
+								<div class="dataTables_paginate paging_simple_numbers" ng-show="profilePageInfo.totalPages>1">
 									<ul class="pagination">
-										<li class="paginate_button previous disabled" id="example2_previous">
-											<a href="#" aria-controls="example2" data-dt-idx="0" tabindex="0">Previous</a>
+										<li class="paginate_button previous" >
+											<a  aria-controls="example2" data-dt-idx="0" tabindex="0" ng-click="changePage(profilesFilters.pageNumber-1)">Previous</a>
 										</li>
 										<li class="paginate_button active">
-											<a href="#" aria-controls="example2" data-dt-idx="1" tabindex="0">1</a>
+											<a aria-controls="example2" data-dt-idx="1" tabindex="0" ng-click="changePage(1)">1</a>
 										</li>
 										<li class="paginate_button ">
-											<a href="#" aria-controls="example2" data-dt-idx="2" tabindex="0">2</a>
-										</li>
-										<li class="paginate_button ">
-											<a href="#" aria-controls="example2" data-dt-idx="3" tabindex="0">3</a>
-										</li>
-										<li class="paginate_button ">
-											<a href="#" aria-controls="example2" data-dt-idx="4" tabindex="0">4</a>
-										</li>
-										<li class="paginate_button ">
-											<a href="#" aria-controls="example2" data-dt-idx="5" tabindex="0">5</a>
-										</li>
-										<li class="paginate_button ">
-											<a href="#" aria-controls="example2" data-dt-idx="6" tabindex="0">6</a>
+											<a  aria-controls="example2" data-dt-idx="2" tabindex="0" ng-click="changePage(2)">2</a>
 										</li>
 										<li class="paginate_button next" id="example2_next">
-											<a href="#" aria-controls="example2" data-dt-idx="7" tabindex="0">Next</a>
+											<a  aria-controls="example2" data-dt-idx="7" tabindex="0" ng-click="changePage(profilesFilters.pageNumber+1)">Next</a>
 										</li>
 									</ul>
 								</div>

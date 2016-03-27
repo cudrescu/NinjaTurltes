@@ -12,12 +12,10 @@ angular.module("hackathon-app").factory('ProfilesServices',['$http', function($h
 		},
     adaptSkilsToCategory:function(data){
       var categories = [];
-      console.log(data);
       var e = this;
       angular.forEach(data.skillList, function(value, key) {
         var category = e.categoryExist(categories,value.category);
         if(category==-1){
-          console.log(angular.copy(value));
           categories.push({name:angular.copy(value.category),skils:[angular.copy(value)]});
         }else{
           categories[angular.copy(category)].skils.push(angular.copy(value));

@@ -12,11 +12,22 @@ angular.module('hackathon-app')
 			firstName:'',
 			position:''
 		};
-
+		$scope.profilePageInfo = {
+			total:0,
+			totalPages:1
+		};
+		$scope.changePage = function(x){
+			if(x>0 && x<=$scope.profilePageInfo.totalPages){
+				$scope.profilesFilters.pageNumber = x;
+				$scope.getProfiles();
+			}
+		};
 		$scope.getProfiles = function(){
 			$scope.profilesFilters.firstName = $scope.profilesFilters.lastName;
 			ProfilesServices.getList($scope.profilesFilters).then(function(response){
-				$scope.profiles = response;
+				$scope.profiles = response.items;
+				$scope.profilePageInfo.total = response.totalItems;
+				$scope.profilePageInfo.totalPages = parseInt(response.totalItems/$scope.profilesFilters.pageSize);
 			});
 			/*
 			$scope.profiles = [
