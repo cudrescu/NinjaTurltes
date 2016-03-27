@@ -41,7 +41,7 @@
 									</thead>
 									<tbody>
 										<tr role="row" ng-repeat="profile in profiles track by $index">
-											<td><span ng-click="openProfile(profile.email)">{{profile.email}}</span></td>
+											<td><span><a ui-sref="profile({id:profile.email})">{{profile.email}}</a></span></td>
 											<td>{{profile.firstName}} {{profile.lastName}}</td>
 											<td>{{profile.position}}</td>
 											<td>{{profile.team}}</td>

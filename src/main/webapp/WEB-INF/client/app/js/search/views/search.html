@@ -17,21 +17,26 @@
                         </div>
                         <div class="box-body">
                             <div class="box-group" id="accordion">
-                                <div class="panel box box-primary" ng-repeat="tech in technologies" >
+                                <div class="panel box box-primary" ng-repeat="tech in technologies">
                                     <div class="box-header with-border">
                                         <h4 class="box-title">
-                                            <a data-toggle="collapse" data-parent="#accordion" href="javascript:void(0)" ng-click="collapse($index)">
+                                            <a data-toggle="collapse" data-parent="#accordion" href="javascript:void(0)"
+                                               ng-click="collapse($index)">
                                                 {{tech.category}}
                                             </a>
                                         </h4>
                                     </div>
-                                    <div id="collapseOne" class="panel-collapse collapse in" ng-class="{'in': isAccordionActive($index)}">
+                                    <div id="collapseOne" class="panel-collapse collapse in"
+                                         ng-class="{'in': isAccordionActive($index)}">
                                         <div class="box-body">
-                                            <div class="checkbox col-lg-2" style="margin-top:0px" ng-repeat="skill in tech.skillList">
+                                            <div class="checkbox col-lg-2" style="margin-top:0px"
+                                                 ng-repeat="skill in tech.skillList">
                                                 <label>
-                                                    <input type="checkbox" ng-model="filter[skill.name].selected"> {{skill.name}}
+                                                    <input type="checkbox" ng-model="filter[skill.name].selected">
+                                                    {{skill.name}}
                                                 </label>
-                                                <input type="number" ng-model="filter[skill.name].score" style="width: 40px;float: right;">
+                                                <input type="number" ng-model="filter[skill.name].score"
+                                                       style="width: 40px;float: right;">
                                             </div>
                                         </div>
                                     </div>
@@ -51,7 +56,8 @@
                                 </select>
                             </div>
                             <div class="col-md-6 text-center">
-                                <button class="btn btn-primary" ng-click="getRecommendedMembers()">Recommend members</button>
+                                <button class="btn btn-primary" ng-click="getRecommendedMembers()">Recommend members
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -59,7 +65,57 @@
             </div>
         </div>
 
-    </div>
+        <div class="panel panel-default" ng-show="showResultsPanel">
+            <div class="panel-heading">This is the list of recommended users</div>
+            <div class="panel-body">
+                <div class="col-md-12">
+                    <div class="box box-solid">
+                        <div class="box-header with-border">
+                            <h3 class="box-title">Members are ordered based on your criteria</h3>
+                        </div>
+                        <div class="box-body">
+                            <div id="example2_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
 
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <table id="example2" class="table table-bordered table-hover dataTable"
+                                               role="grid" aria-describedby="example2_info">
+                                            <thead>
+                                            <tr role="row">
+                                                <th tabindex="0" rowspan="1" colspan="1">Email</th>
+                                                <th tabindex="0" rowspan="1" colspan="1">Name</th>
+                                                <th tabindex="0" rowspan="1" colspan="1">Position</th>
+                                                <th tabindex="0" rowspan="1" colspan="1"
+                                                    style="width:50px;text-align:center;">Score
+                                                </th>
+                                                <th tabindex="0" rowspan="1" colspan="1"
+                                                    style="width:50px;text-align:center;">Action
+                                                </th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr role="row" ng-repeat="profile in profiles track by $index">
+                                                <td><span><a ui-sref="profile({id:profile.email})">{{profile.email}}</a></span>
+                                                </td>
+                                                <td>{{profile.firstName}} {{profile.lastName}}</td>
+                                                <td>{{profile.position}}</td>
+                                                <td style="text-align:center;"><span class="badge"
+                                                                                     ng-class="scoreBadgeCollor(profile.score)">{{profile.score}}</span>
+                                                </td>
+                                                <td><span ng-click="addProfileToSelection(profile)"><i
+                                                        class="fa fa-fw fa-save"
+                                                        ng-class="{'text-green':ifIsSaved(profile)}"></i></span></td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
 
