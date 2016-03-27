@@ -13,19 +13,44 @@
 }
 .skin-black-light .main-header>.navbar .sidebar-toggle:hover,
 .skin-black-light .main-header>.navbar .nav>li>a:hover, .skin-black-light .main-header>.navbar .nav>li>a:active, .skin-black-light .main-header>.navbar .nav>li>a:focus, .skin-black-light .main-header>.navbar .nav .open>a, .skin-black-light .main-header>.navbar .nav .open>a:hover, .skin-black-light .main-header>.navbar .nav .open>a:focus, .skin-black-light .main-header>.navbar .nav>.active>a{
-	color:#0092A7;
+	color:#825907;
 }
-
+.skin-black-light .main-header>.navbar>.sidebar-toggle,
+.skin-black-light .main-header>.navbar .navbar-nav>li>a{
+		border-right: 1px solid #F5BC62;
+}
+.skin-black-light .main-header>.navbar, .skin-black-light .main-header>.logo, .skin-black-light .main-header>.navbar .nav>li>a:hover, .skin-black-light .main-header>.navbar .nav>li>a:active, .skin-black-light .main-header>.navbar .nav>li>a:focus, .skin-black-light .main-header>.navbar .nav .open>a, .skin-black-light .main-header>.navbar .nav .open>a:hover, .skin-black-light .main-header>.navbar .nav .open>a:focus, .skin-black-light .main-header>.navbar .nav>.active>a, .skin-black-light .main-header>.logo:hover, .skin-black-light .main-header>.navbar .sidebar-toggle:hover{
+	border-color: #F5BC62;
+}
+.skin-black-light .main-header>.navbar .navbar-custom-menu .navbar-nav>li>a, .skin-black-light .main-header>.navbar .navbar-right>li>a{
+	border-left: 1px solid #F5BC62;
+}
+.content-wrapper{
+	background-color: #C3DAE3;
+}
+.skin-black-light .content-wrapper{
+	border-left: 1px solid #fd8a33;
+}
+.skin-black-light .main-header{
+	border-bottom: 1px solid #fd8a33;
+}
+.skin-black-light .main-header{
+	box-shadow: 0 3px 1px rgba(0,0,0,0.2);
+}
+.skin-black-light .wrapper, .skin-black-light .main-sidebar, .skin-black-light .left-side,
+.control-sidebar-light, .control-sidebar-light + .control-sidebar-bg {
+    background-color: #cbcbc1;
+}
 .profilePage{
 
 }
 .profilePage .technologieTab{
 	padding-left: 10px;
 	padding-right: 10px;
-	border-left: 1px dashed #cacaca;
-	border-right: 1px dashed #cacaca;
-	padding-top: 15px;
-	padding-bottom: 5px;
+	border-left: 2px dashed #cacaca;
+	border-right: 2px dashed #cacaca;
+	padding-top: 10px;
+	padding-bottom: 10px;
 	margin-bottom: 10px;
 	position: relative;
 }
@@ -34,10 +59,10 @@
 	margin: 0;
 	display: block;
 	content: "";
-	width: 5%;
+	width: 7%;
 	height: 100%;
-	border-top: 1px dashed #cacaca;
-	border-bottom: 1px dashed #cacaca;
+	border-top: 2px dashed #cacaca;
+	border-bottom: 2px dashed #cacaca;
 	/* background-color: #000; */
 	position: absolute;
 	right: 0;
@@ -48,10 +73,10 @@
 	margin: 0;
 	display: block;
 	content: "";
-	width: 5%;
+	width: 7%;
 	height: 100%;
-	border-top: 1px dashed #cacaca;
-	border-bottom: 1px dashed #cacaca;
+	border-top: 2px dashed #cacaca;
+	border-bottom: 2px dashed #cacaca;
 	/* background-color: #000; */
 	position: absolute;
 	left: 0;
@@ -63,16 +88,25 @@
   height: 23px;
   line-height: 16px;
   font-size: 14px;
+
 }
 .profilePage .skillTab .progress-bar,
 .profilePage .technologieName{
 	color:#333;
+	background-color: #cbcbc1;
+	font-weight: 700;
+	box-shadow: 0px 1px 2px #cacaca;
+	text-shadow: 0px 1px #cacaca;
+	cursor: pointer;
 }
 .profilePage .skillName{
 
 }
 .profilePage .progress{
 	margin-bottom: 5px;
+  box-shadow: 0px 1px 2px #cacaca;
+  width: 97%;
+  margin: 10px auto;
 }
 .control-sidebar,.control-sidebar-bg{
 	-webkit-transition: -webkit-transform 0.3s ease-in-out, all 0.3s ease-in-out;
@@ -93,4 +127,21 @@
 .chartToDisplay{
 	width:100%;
 	height:500px;
+}
+.navbar-custom-menu > .navbar-nav > li{
+	cursor: pointer;
+}
+table.dataTable thead > tr > th{
+	padding-right: 8px;
+}
+.table-bordered > thead > tr > th{
+	border-bottom-width: 1px;
+}
+.content-header > h1 > small{
+	text-shadow: 1px 1px #cacaca;
+}
+.profileSkill{
+	border: 1px solid #cacaca;
+	display: inline-block;
+	box-shadow: 1px 1px 5px #cacaca;
 }

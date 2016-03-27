@@ -1,7 +1,7 @@
 <section class="content-header">
     <h1>
-        Recomandations System
-        <small>Search team members</small>
+        Recommendation System
+        <small>Search for the best skills for your dream team</small>
     </h1>
 </section>
 <section class="content">
@@ -11,22 +11,14 @@
             <div class="panel-heading">Complete the search criteria</div>
             <div class="panel-body">
                 <div class="col-md-12">
-                    <div class="box box-solid">
-                        <div class="box-header with-border">
-                            <h3 class="box-title">Select skills</h3>
-                        </div>
-                        <div class="box-body">
-                            <div class="box-group" id="accordion">
-                                <div class="panel box box-primary" ng-repeat="tech in technologies">
-                                    <div class="box-header with-border">
-                                        <h4 class="box-title">
-                                            <a data-toggle="collapse" data-parent="#accordion" href="javascript:void(0)"
-                                               ng-click="collapse($index)">
+                    <div class=" ">
+                        <div class=" profilePage">
+                            <div  >
+                                <div class="technologieTab" ng-repeat="tech in technologies">
+                                    <div class="technologieName label" style="margin-bottom: 0px;" ng-click="collapse($index)">
                                                 {{tech.category}}
-                                            </a>
-                                        </h4>
                                     </div>
-                                    <div id="collapseOne" class="panel-collapse collapse in"
+                                    <div id="collapseOne" class="panel-collapse collapse"
                                          ng-class="{'in': isAccordionActive($index)}">
                                         <div class="box-body">
                                             <div class="checkbox col-lg-2" style="margin-top:0px"
@@ -35,7 +27,7 @@
                                                     <input type="checkbox" ng-model="filter[skill.name].selected">
                                                     {{skill.name}}
                                                 </label>
-                                                <input type="number" ng-model="filter[skill.name].score"
+                                                <input type="number" ng-model="filter[skill.name].score" class="form-cotrol"
                                                        style="width: 40px;float: right;">
                                             </div>
                                         </div>
@@ -43,11 +35,10 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="box-header with-border">
-                            <h3 class="box-title">Select Position</h3>
-                        </div>
-                        <div class="box-body">
-                            <div class="col-md-6">
+                        <div class="">
+
+                            <div class="col-md-6 form-inline">
+                              <label>Select Position </label>
                                 <select name="searchField"
                                         class="form-control"
                                         ng-model="filter.position"
@@ -55,7 +46,7 @@
                                         ng-options="position for position in positions">
                                 </select>
                             </div>
-                            <div class="col-md-6 text-center">
+                            <div class="col-md-6 text-right">
                                 <button class="btn btn-primary" ng-click="getRecommendedMembers()">Recommend members
                                 </button>
                             </div>
@@ -118,4 +109,3 @@
         </div>
     </div>
 </section>
-

@@ -1,7 +1,5 @@
 <section class="content-header">
-	<h1>
-		Profile page
-	</h1>
+	
 </section>
 
 <section class="content">
@@ -22,9 +20,10 @@
 
 			<div class="box box-primary">
 				<div class="box-header with-border">
-					<h3 class="box-title">About Me</h3>
+					<h3 class="box-title">About Me</h3><span class="label label-success pull-right" style="font-size: 14px;">{{profile.score}}</span>
 				</div>
 				<div class="box-body">
+
 					<strong><i class="fa fa-envelope margin-r-5"></i>Email</strong>
 
 					<p class="text-muted">
@@ -33,20 +32,14 @@
 
 					<hr>
 
-					<strong><i class="fa fa-map-marker margin-r-5"></i>Average score</strong>
-
-					<p class="text-muted">{{profile.score}}</p>
-
-					<hr>
-
 					<strong><i class="fa fa-pencil margin-r-5"></i> Skills</strong>
 
 					<p>
-						<span class="label label-danger">UI Design</span>
-						<span class="label label-success">Coding</span>
-						<span class="label label-info">Javascript</span>
-						<span class="label label-warning">PHP</span>
-						<span class="label label-primary">Node.js</span>
+						<repeater ng-repeat="technologie in profile.technologies track by $index" >
+							<repeater ng-repeat="skill in technologie.skils" >
+								<span class="label profileSkill" style="background-color:{{progressBarClassColor(skill.score)}};color: #333;">{{skill.name}}</span>
+							</repeater>
+						</repeater>
 					</p>
 				</div>
 			</div>
@@ -59,7 +52,7 @@
 				</div>
 				<div class="box-body profilePage">
 					<div ng-repeat="technologie in profile.technologies track by $index" class="technologieTab">
-						<span class="technologieName label" style="background-color:{{labelScoreClass(technologie)}}">{{technologie.name}} - {{technologie.score}}</span>
+						<span class="technologieName label">{{technologie.name}} - {{technologie.score}}</span>
 						<div>
 							<div ng-repeat="skill in technologie.skils" class="skillTab">
 								<span class="skillName"></span>

@@ -6,7 +6,7 @@
 
         .config(function ($stateProvider, $urlRouterProvider) {
 
-            $urlRouterProvider.otherwise('/login');
+            $urlRouterProvider.otherwise('/search');
             $stateProvider
                 .state('appbase', {
                     abstract: true,

@@ -40,7 +40,7 @@
 											<th tabindex="0" rowspan="1" colspan="1" >Name</th>
 											<th tabindex="0" rowspan="1" colspan="1" >Position</th>
 											<th tabindex="0" rowspan="1" colspan="1" style="width:50px;text-align:center;">Score</th>
-											<th tabindex="0" rowspan="1" colspan="1" style="width:50px;text-align:center;">Action</th>
+											<th tabindex="0" rowspan="1" colspan="1" style="width:30px;text-align:center;">Action</th>
 										</tr>
 									</thead>
 									<tbody>
@@ -49,7 +49,7 @@
 											<td>{{profile.firstName}} {{profile.lastName}}</td>
 											<td>{{profile.position}}</td>
 											<td style="text-align:center;"><span class="badge" ng-class="scoreBadgeCollor(profile.score)">{{profile.score}}</span></td>
-											<td><span ng-click="addProfileToSelection(profile)"><i class="fa fa-fw fa-save" ng-class="{'text-green':ifIsSaved(profile)}"></i></span></td>
+											<td style="text-align:center;"><span ng-click="addProfileToSelection(profile)"><i class="fa fa-fw fa-save" ng-class="{'text-green':ifIsSaved(profile)}"></i></span></td>
 										</tr>
 									</tbody>
 								</table>

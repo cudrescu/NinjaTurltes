@@ -4,7 +4,7 @@ angular.module('hackathon-app')
 
 		$scope.technologies = formatSkills(skills, skillCategories);
 		$scope.positions = positions;
-		$scope.accordionStatus = initAccordions(skillCategories.length, true);
+		$scope.accordionStatus = initAccordions(skillCategories.length, false);
 		$scope.profiles = [];
 		$scope.showResultsPanel = false;
 
