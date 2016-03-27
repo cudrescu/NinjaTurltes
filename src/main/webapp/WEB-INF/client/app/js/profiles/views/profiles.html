@@ -46,7 +46,7 @@
 											<td>{{profile.position}}</td>
 											<td>{{profile.team}}</td>
 											<td style="text-align:center;"><span class="badge" ng-class="scoreBadgeCollor(profile.score)">{{profile.score}}</span></td>
-											<td><span class="btn btn-default btn-xs" ng-click="addProfileToSelection(profile)">Add to my proposal</span></td>
+											<td><span ng-click="addProfileToSelection(profile)"><i class="fa fa-fw fa-save" ng-class="{'text-green':ifIsSaved(profile)}"></i></span></td>
 										</tr>
 									</tbody>
 								</table>
