@@ -40,7 +40,36 @@
                     url:'/search',
                     parent:'appbase',
                     templateUrl: 'js/search/views/search.html',
-                    controller: 'SearchCtrl'
+                    controller: 'SearchCtrl',
+                    resolve: {
+                        skillCategories: function($q, SearchService) {
+                            var skillCategoriesPromise = $q.defer();
+                            SearchService.getAllSkillCategories().then(
+                                function(result) {
+                                    skillCategoriesPromise.resolve(result.data);
+                                }
+                            );
+                            return skillCategoriesPromise.promise;
+                        },
+                        skills: function($q, SearchService) {
+                            var skillsPromise = $q.defer();
+                            SearchService.getAllSkills().then(
+                                function(result) {
+                                    skillsPromise.resolve(result.data);
+                                }
+                            );
+                            return skillsPromise.promise;
+                        },
+                        positions: function($q, SearchService) {
+                            var positionsPromise = $q.defer();
+                            SearchService.getAllPositions().then(
+                                function(result) {
+                                    positionsPromise.resolve(result.data);
+                                }
+                            );
+                            return positionsPromise.promise;
+                        }
+                    }
                 }).state('login', {
                     url:'/login',
                     templateUrl: 'js/auth/views/login.html',
@@ -48,10 +77,8 @@
                 });
         })
         .run(function($rootScope, $httpBackend) {
-            //$rootScope.user = window.user;
             $rootScope.$on('$stateChangeSuccess',
                 function(event, toState, toParams, fromState, fromParams){
-                    //console.log(toState.name);
                     $rootScope.currentState = toState.name;
                     setTimeout(function(){
                         $(window).resize();
