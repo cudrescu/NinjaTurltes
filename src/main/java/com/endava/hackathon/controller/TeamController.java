@@ -1,6 +1,5 @@
 package com.endava.hackathon.controller;
 
-import com.endava.hackathon.dto.Skill;
 import com.endava.hackathon.service.TeamService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
