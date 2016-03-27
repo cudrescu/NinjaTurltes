@@ -64,12 +64,29 @@
   line-height: 16px;
   font-size: 14px;
 }
-.profilePage .skillTab{
-
+.profilePage .skillTab .progress-bar,
+.profilePage .technologieName{
+	color:#333;
 }
 .profilePage .skillName{
 
 }
 .profilePage .progress{
 	margin-bottom: 5px;
+}
+.control-sidebar,.control-sidebar-bg{
+	-webkit-transition: -webkit-transform 0.3s ease-in-out, all 0.3s ease-in-out;
+    -moz-transition: -moz-transform 0.3s ease-in-out, all 0.3s ease-in-out;
+    -o-transition: -o-transform 0.3s ease-in-out, all 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out, all 0.3s ease-in-out;
+		left:100%;
+}
+.control-sidebar-open,
+.control-sidebar.control-sidebar-open + .control-sidebar-bg{
+	width:auto;
+	left:230px;
+}
+.sidebar-collapse .control-sidebar-open,
+.sidebar-collapse .control-sidebar.control-sidebar-open + .control-sidebar-bg{
+	left:50px;
 }
