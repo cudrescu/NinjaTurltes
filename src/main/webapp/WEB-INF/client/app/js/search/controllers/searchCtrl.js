@@ -60,6 +60,13 @@ angular.module('hackathon-app')
 			return $scope.accordionStatus[index];
 		};
 
+		$scope.scoreBadgeCollor = function(x){
+			if(x>8) return 'bg-green';
+			if(x>6) return 'bg-light-blue';
+			if(x>4) return 'bg-yellow';
+			return 'bg-red';
+		};
+
 		$scope.getRecommendedMembers = function() {
 			var requestData = buildRequestData($scope.filter);
 			SearchService.recommendMembers(requestData).then(
