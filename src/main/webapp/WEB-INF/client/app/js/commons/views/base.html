@@ -112,7 +112,6 @@
 											<th tabindex="0" rowspan="1" colspan="1" >Email</th>
 											<th tabindex="0" rowspan="1" colspan="1" >Name</th>
 											<th tabindex="0" rowspan="1" colspan="1" >Position</th>
-											<th tabindex="0" rowspan="1" colspan="1" >Team</th>
 											<th tabindex="0" rowspan="1" colspan="1" style="width:50px;text-align:center;">Score</th>
 											<th tabindex="0" rowspan="1" colspan="1" style="width:50px;text-align:center;">Action</th>
 										</tr>
@@ -122,9 +121,8 @@
 											<td><span ng-click="openProfile(profile.email)">{{profile.email}}</span></td>
 											<td>{{profile.firstName}} {{profile.lastName}}</td>
 											<td>{{profile.position}}</td>
-											<td>{{profile.team}}</td>
 											<td style="text-align:center;"><span class="badge" ng-class="scoreBadgeCollor(profile.score)">{{profile.score}}</span></td>
-											<td><span ng-click="removeProfileFromSelection(profile)"><i class="fa fa-fw fa-remove"></i></span><span ng-click="selectProfileToTeam(profile)"><i class="fa fa-fw fa-exchange"></i></span></td>
+											<td style="text-align:center;"><span ng-click="removeProfileFromSelection(profile)"><i class="fa fa-fw fa-remove"></i></span><span ng-click="selectProfileToTeam(profile)"><i class="fa fa-fw fa-exchange"></i></span></td>
 										</tr>
 									</tbody>
 								</table>
@@ -144,7 +142,6 @@
 											<th tabindex="0" rowspan="1" colspan="1" >Email</th>
 											<th tabindex="0" rowspan="1" colspan="1" >Name</th>
 											<th tabindex="0" rowspan="1" colspan="1" >Position</th>
-											<th tabindex="0" rowspan="1" colspan="1" >Team</th>
 											<th tabindex="0" rowspan="1" colspan="1" style="width:50px;text-align:center;">Score</th>
 											<th tabindex="0" rowspan="1" colspan="1" style="width:50px;text-align:center;">Action</th>
 										</tr>
@@ -154,9 +151,8 @@
 											<td><span ng-click="openProfile(profile.email)">{{profile.email}}</span></td>
 											<td>{{profile.firstName}} {{profile.lastName}}</td>
 											<td>{{profile.position}}</td>
-											<td>{{profile.team}}</td>
 											<td style="text-align:center;"><span class="badge" ng-class="scoreBadgeCollor(profile.score)">{{profile.score}}</span></td>
-											<td><span ng-click="removeProfileFromTeam(profile)"><i class="fa fa-fw fa-exchange"></i></span></td>
+											<td style="text-align:center;"><span ng-click="removeProfileFromTeam(profile)"><i class="fa fa-fw fa-exchange"></i></span></td>
 										</tr>
 									</tbody>
 								</table>

@@ -80,8 +80,9 @@ angular.module('hackathon-app')
             });
 
             if(count == 0) return 0;
-
-            return sum/count;
+						var result = sum/count;
+						result = parseFloat(result.toFixed(2));
+            return result;
         }
 
         function determineMaxValue(profiles, skill) {
@@ -113,11 +114,11 @@ angular.module('hackathon-app')
             }];
             angular.forEach($scope.profilesSelected, function (value, key) {
                 angular.forEach(value.skillList, function (valuee) {
-                    if (value.selected == true && !$scope.ifInCategory(categories, valuee.category)) {
+                    if (value.selected == true && !$scope.ifInCategory(categories, valuee.name)) {
                         categories.push(angular.copy(valuee.name));
-                        data[0].data.push(determineMinValue($scope.profilesSelected, valuee.name));
-                        data[1].data.push(determineAvgValue($scope.profilesSelected, valuee.name));
-                        data[2].data.push(determineMaxValue($scope.profilesSelected, valuee.name));
+                        //data[0].data.push(determineMinValue($scope.profilesSelected, valuee.name));
+                        data[0].data.push(determineAvgValue($scope.profilesSelected, valuee.name));
+                        //data[2].data.push(determineMaxValue($scope.profilesSelected, valuee.name));
                     }
                 });
             });
@@ -181,11 +182,7 @@ angular.module('hackathon-app')
                     found = true;
                 }
             });
-            if (found) {
-                return true;
-            } else {
-                return false;
-            }
+            return found;
         };
 
         $scope.saveTeam = function() {

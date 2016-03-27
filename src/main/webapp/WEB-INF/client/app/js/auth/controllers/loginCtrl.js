@@ -25,7 +25,7 @@ angular.module('hackathon-app')
 			if(validate){
 				LoginServices.login($scope.login).then(function(response){
 					if(response.name==$scope.login.email){
-						$state.go('dashboard',true);
+						$state.go('profiles',true);
 					}
 				},function(data){
 					if(data.status==401){
